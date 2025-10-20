@@ -395,7 +395,7 @@ export async function sendCommand(
 
 export function buildAuthUrl(state?: string) {
   const config = getTuyaConfig();
-  const authorizationUrl = new URL("/v1.0/login/auth", config.baseUrl);
+  const authorizationUrl = new URL("/v1.0/oauth/authorize", config.baseUrl);
   authorizationUrl.searchParams.set("client_id", config.clientId);
   authorizationUrl.searchParams.set("response_type", "code");
   authorizationUrl.searchParams.set("redirect_uri", config.callbackUrl);
