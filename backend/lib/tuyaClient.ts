@@ -22,6 +22,7 @@ interface TuyaConfig {
   baseUrl: string;
   callbackUrl: string;
   backendUrl?: string;
+  h5LoginUrl?: string;
 }
 
 type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
@@ -94,6 +95,7 @@ export function getTuyaConfig(): TuyaConfig {
   const baseUrl = readEnv("TUYA_REGION_BASE_URL");
   const callbackUrl = readEnv("TUYA_CALLBACK_URL");
   const backendUrl = readEnv("BACKEND_URL");
+  const h5LoginUrl = readEnv("TUYA_H5_LOGIN_URL");
 
   if (!clientId || !clientSecret || !baseUrl || !callbackUrl) {
     throw new Error(
@@ -108,7 +110,8 @@ export function getTuyaConfig(): TuyaConfig {
     callbackUrl,
     authKey: readEnv("TUYA_AUTH_KEY"),
     projectCode: readEnv("TUYA_PROJECT_CODE"),
-    backendUrl
+    backendUrl,
+    h5LoginUrl
   };
 
   return cachedConfig;
@@ -395,16 +398,16 @@ export async function sendCommand(
 
 export function buildAuthUrl(state?: string) {
   const config = getTuyaConfig();
-  const authorizationUrl = new URL("/v1.0/oauth/authorize", config.baseUrl);
-  authorizationUrl.searchParams.set("client_id", config.clientId);
-  authorizationUrl.searchParams.set("response_type", "code");
-  authorizationUrl.searchParams.set("redirect_uri", config.callbackUrl);
-  authorizationUrl.searchParams.set("lang", "en");
-  authorizationUrl.searchParams.set("scope", "all");
+  const authorizationUrl = config.h5LoginUrl
+    ? new URL(config.h5LoginUrl)
+    : new URL("/v1.0/oauth/authorize", config.baseUrl);
 
-  if (state) {
-    authorizationUrl.searchParams.set("state", state);
-  }
+  authorizationUrl.searchParams.set("client_id", config.clientId);
+  authorizationUrl.searchParams.set("redirect_uri", config.callbackUrl);
+  authorizationUrl.searchParams.set("response_type", "code");
+  authorizationUrl.searchParams.set("scope", "all");
+  authorizationUrl.searchParams.set("lang", "en");
+  authorizationUrl.searchParams.set("state", state ?? crypto.randomUUID());
 
   return authorizationUrl.toString();
 }
