@@ -3,6 +3,8 @@ import { exchangeCodeForToken, getTuyaConfig } from "@/lib/tuyaClient";
 
 const DEEP_LINK_URL = process.env.TUYA_APP_DEEP_LINK;
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request: NextRequest) {
   getTuyaConfig(); // ensure env is present
 

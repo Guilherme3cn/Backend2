@@ -1,11 +1,11 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
+  "/connected/page": "app/connected/page.js",
+  "/page": "app/page.js",
   "/api/tuya/auth/callback/route": "app/api/tuya/auth/callback/route.js",
   "/api/tuya/command/[deviceId]/route": "app/api/tuya/command/[deviceId]/route.js",
   "/api/tuya/devices/route": "app/api/tuya/devices/route.js",
   "/api/tuya/energy/[deviceId]/route": "app/api/tuya/energy/[deviceId]/route.js",
-  "/api/tuya/login/route": "app/api/tuya/login/route.js",
   "/api/tuya/status/[deviceId]/route": "app/api/tuya/status/[deviceId]/route.js",
-  "/connected/page": "app/connected/page.js",
-  "/page": "app/page.js"
+  "/api/tuya/login/route": "app/api/tuya/login/route.js"
 }

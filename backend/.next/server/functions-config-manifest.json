@@ -1,1 +1,1 @@
-{"version":1,"functions":{}}
+{"version":1,"functions":{"/api/tuya/energy/[deviceId]":{},"/api/tuya/auth/callback":{},"/api/tuya/login":{},"/api/tuya/status/[deviceId]":{},"/api/tuya/command/[deviceId]":{},"/api/tuya/devices":{}}}

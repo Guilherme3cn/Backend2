@@ -28,6 +28,7 @@ Campos principais:
 | `TUYA_CLIENT_ID` / `TUYA_CLIENT_SECRET` | Credenciais do projeto Tuya |
 | `TUYA_REGION_BASE_URL` | Base URL do data center (Western America: `https://openapi.tuyaus.com`) |
 | `TUYA_CALLBACK_URL` | Callback configurado na Tuya e apontando para `/api/tuya/auth/callback` da Vercel |
+| `TUYA_H5_LOGIN_URL` | URL H5 de login fornecida pela Tuya (ex.: `https://app-h5.iot787.com/d/login`) |
 | `TUYA_APP_DEEP_LINK` | (Opcional) Deep link para retornar ao app (`myapp://tuya/callback`) |
 | `BACKEND_URL` | URL pública do backend (ex.: `https://...vercel.app`) |
 | `EXPO_PUBLIC_BACKEND_URL` | URL pública usada pelo aplicativo móvel |

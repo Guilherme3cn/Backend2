@@ -5,6 +5,8 @@ import {
   sendCommand
 } from "@/lib/tuyaClient";
 
+export const dynamic = "force-dynamic";
+
 interface CommandRequestBody {
   switch?: "on" | "off";
   value?: unknown;

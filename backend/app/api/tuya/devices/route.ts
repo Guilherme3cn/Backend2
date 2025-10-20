@@ -5,6 +5,8 @@ import {
   resolveUidPreference
 } from "@/lib/tuyaClient";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request: NextRequest) {
   try {
     const uidParam =

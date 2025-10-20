@@ -10,6 +10,7 @@ Next.js (App Router) API that proxies OAuth authentication and device control re
    - `TUYA_REGION_BASE_URL` (ex.: `https://openapi.tuyaus.com` para Western America)
    - `TUYA_CALLBACK_URL` apontando para a rota `/api/tuya/auth/callback` do seu deploy na Vercel.
    - Opcional: `TUYA_APP_DEEP_LINK` (ex.: `myapp://tuya/callback`) para redirecionar direto de volta ao app móvel.
+   - `TUYA_H5_LOGIN_URL` com a URL H5 de login fornecida pela Tuya (ex.: `https://app-h5.iot787.com/d/login`).
    - `BACKEND_URL` com a URL pública do deploy.
 
 > Os tokens são mantidos em memória durante a execução. Para produção, implemente um adaptador que siga a interface exportada em `lib/tokenStore.ts` (ex.: usando MySQL).
