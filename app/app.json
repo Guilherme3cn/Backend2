@@ -22,10 +22,6 @@
       },
       "package": "com.ecohome.tuya"
     },
-    "web": {
-      "bundler": "metro",
-      "output": "static"
-    },
     "extra": {
       "eas": {
         "projectId": "00000000-0000-0000-0000-000000000000"
